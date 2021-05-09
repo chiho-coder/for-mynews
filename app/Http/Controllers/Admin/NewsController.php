@@ -21,10 +21,8 @@ public function create(Request $request)
     
     $news = new News;
     $form = $request->all();
-   
-      //\Debugbar::info($form);//　
     
-    if (isset($form['image'])) {
+    if(isset($form['image'])) {
        $path = $request->file('image')->store('public/image');
        $news->image_path = basename($path);
     } else {
